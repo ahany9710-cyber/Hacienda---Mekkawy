@@ -40,8 +40,8 @@ const CONFIG = {
   LEAD_ENDPOINT: "https://formspree.io/f/mjgzndvo",
   PHONE: "201008900076",
   TEL_HREF: "tel:+201008900076",
-  POPUP_SCROLL_THRESHOLD: 0.7,
-  POPUP_DELAY_MS: 12000,
+  POPUP_SCROLL_THRESHOLD: 0.8,
+  POPUP_DELAY_MS: 20000,
   WA_PRESETS: {
     ar: {
       default: "مهتم بـ هاسيندا راس الحكمة،ياريت أعرف التفاصيل والأسعار",

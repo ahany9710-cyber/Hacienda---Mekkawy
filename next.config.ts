@@ -2,13 +2,18 @@ import type { NextConfig } from "next";
 import path from "path";
 
 function buildCspDirectives(): string {
+  // Microsoft Clarity: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-csp
+  const clarityScript = "https://www.clarity.ms https://scripts.clarity.ms";
+  const clarityConnect =
+    "https://*.clarity.ms https://c.bing.com https://www.clarity.ms";
+
   const parts = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-    `connect-src 'self' https://formspree.io${
+    `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${clarityScript}`,
+    `connect-src 'self' https://formspree.io ${clarityConnect}${
       process.env.NODE_ENV !== "production" ? " ws: wss:" : ""
     }`,
-    "img-src 'self' data: blob: https:",
+    "img-src 'self' data: blob: https: https://c.clarity.ms",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' data: https://fonts.gstatic.com",
     "media-src 'self' blob:",
