@@ -5,9 +5,11 @@ import Script from "next/script";
 import { ClarityRouteListener } from "@/components/ClarityRouteListener";
 import "./globals.css";
 
+// CLIENT: replace Google Ads tag before launch
 const GOOGLE_ADS_ID = "AW-17012763903";
 
 /** Microsoft Clarity project ID */
+// CLIENT: replace Clarity project ID before launch
 const CLARITY_PROJECT_ID = "wvvlksg43d";
 
 const cairo = Cairo({
@@ -23,7 +25,8 @@ export const metadata: Metadata = {
   },
   description:
     "إطلاق هاسيندا راس الحكمة من بالم هيلز على كيلو ٢٣٨ راس الحكمة: شاطئ ٤.٨ كم، خليجين طبيعيين، وحدات بفيو بحري. تواصل واتساب أو اتصل بنا.",
-  metadataBase: new URL("https://hacienda-ivory.vercel.app"),
+  // TODO: set client domain before launch (do not use hacienda-ivory.vercel.app)
+  metadataBase: new URL("https://CLIENT-DOMAIN.example"),
   openGraph: {
     type: "website",
     locale: "ar_EG",

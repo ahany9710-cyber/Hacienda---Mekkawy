@@ -34,11 +34,12 @@ const I18N = {
 const STR = I18N[LOCALE];
 
 // ----- Config (edit these in production) -----
+// CLIENT: replace Formspree endpoint before launch
 const CONFIG = {
-  WHATSAPP_NUMBER: "201156004243",
+  WHATSAPP_NUMBER: "201008900076",
   LEAD_ENDPOINT: "https://formspree.io/f/xdajdyzd",
-  PHONE: "201156004243",
-  TEL_HREF: "tel:+201156004243",
+  PHONE: "201008900076",
+  TEL_HREF: "tel:+201008900076",
   POPUP_SCROLL_THRESHOLD: 0.7,
   POPUP_DELAY_MS: 12000,
   WA_PRESETS: {

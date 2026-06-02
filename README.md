@@ -2,7 +2,7 @@
 
 Landing page for **Hacienda Ras El Hekma** (Palm Hills, North Coast).
 
-- **Live:** [hacienda-ivory.vercel.app](https://hacienda-ivory.vercel.app)
+- **Live:** `https://CLIENT-DOMAIN.example` (TODO: set client domain before launch)
 - **Repo:** [github.com/ahany9710-cyber/Palm-hills---Hacienda](https://github.com/ahany9710-cyber/Palm-hills---Hacienda)
 
 ## Tech Stack

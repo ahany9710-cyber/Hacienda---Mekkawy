@@ -7,12 +7,12 @@
   /* Palette */
   --charcoal: #141414;
   --ink: #1d1b18;
-  --bone: #f6f1e8;
-  --cream: #ede5d6;
+  --bone: #f8f2e9;
+  --cream: #efe6d9;
   --paper: #ffffff;
 
-  --accent: oklch(0.52 0.20 25);          /* crimson */
-  --accent-deep: oklch(0.44 0.18 25);
+  --accent: oklch(0.50 0.19 32);          /* terracotta red */
+  --accent-deep: oklch(0.42 0.17 32);
   --teal: oklch(0.55 0.08 210);
   --teal-deep: oklch(0.36 0.07 215);
   --amber: oklch(0.78 0.10 65);
@@ -22,8 +22,8 @@
   --hairline-light: rgba(246, 241, 232, 0.18);
 
   /* Type */
-  --f-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --f-sans: "Tajawal", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-serif: "EB Garamond", "Playfair Display", Georgia, serif;
+  --f-sans: "Cairo", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --f-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 
   /* Spacing rhythm */
