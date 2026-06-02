@@ -73,6 +73,12 @@ const LEAD_SUBMITTED_KEY = "hh_lead_submitted";
 /** If the page is barely scrollable, wait for the timer instead of scroll depth. */
 const MIN_SCROLL_ROOM_PX = 120;
 
+/** Deep-link entry (#units, #lead, …) — popup waits for timer only, not scroll. */
+function isAnchorEntry() {
+  const hash = window.location.hash;
+  return hash.length > 1 && hash !== "#hero";
+}
+
 let popupDisposeTriggers = null;
 
 function shouldSkipPopup() {
@@ -279,9 +285,13 @@ function setupLeadPopup() {
 
   popupDisposeTriggers = disposeTriggers;
 
+  const anchorEntry = isAnchorEntry();
+
   if (!shouldSkipPopup()) {
-    window.addEventListener("scroll", onScrollCheck, scrollOpts);
-    onScrollCheck();
+    if (!anchorEntry) {
+      window.addEventListener("scroll", onScrollCheck, scrollOpts);
+      onScrollCheck();
+    }
     timerId = setTimeout(() => openPopup("timer"), CONFIG.POPUP_DELAY_MS);
   }
 
