@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Cairo } from "next/font/google";
-import Script from "next/script";
-import { ClarityRouteListener } from "@/components/ClarityRouteListener";
 import "./globals.css";
-
-// CLIENT: replace Google Ads tag before launch
-const GOOGLE_ADS_ID = "AW-17012763903";
-
-/** Microsoft Clarity project ID */
-// CLIENT: replace Clarity project ID before launch
-const CLARITY_PROJECT_ID = "wvvlksg43d";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -42,31 +32,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={cairo.variable}>
       <body className="antialiased min-h-screen bg-background text-foreground">
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GOOGLE_ADS_ID}');
-          `}
-        </Script>
-        <Script id="microsoft-clarity" strategy="beforeInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
-          `}
-        </Script>
         {children}
-        <Suspense fallback={null}>
-          <ClarityRouteListener />
-        </Suspense>
       </body>
     </html>
   );

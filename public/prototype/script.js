@@ -97,14 +97,6 @@ function waUrl(presetKey) {
   return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
-function trackCta(id) {
-  console.log("[cta]", id);
-}
-
-function trackFormLead(source) {
-  console.log("[lead]", source);
-}
-
 function hydrateCallLabels() {
   document.querySelectorAll("[data-tel] .call-label, .sticky-mobile a.call .call-label").forEach((el) => {
     el.textContent = STR.callLabel;
@@ -201,8 +193,6 @@ function setupLeadForm({ formId, successId, source, ctaId, onSuccess }) {
       });
       if (!res.ok) throw new Error("Bad response");
 
-      trackFormLead(source);
-      trackCta(ctaId);
       markLeadSubmitted();
 
       onSuccess?.();
@@ -251,7 +241,6 @@ function setupLeadPopup() {
     popup.setAttribute("aria-hidden", "false");
     requestAnimationFrame(() => popup.classList.add("is-open"));
     document.body.classList.add("lead-popup-open");
-    trackCta(`popup_open_${trigger}`);
 
     const firstInput = popup.querySelector("input");
     setTimeout(() => firstInput?.focus(), 350);
@@ -261,7 +250,6 @@ function setupLeadPopup() {
     popup.classList.remove("is-open");
     popup.setAttribute("aria-hidden", "true");
     document.body.classList.remove("lead-popup-open");
-    trackCta("popup_close");
     setTimeout(() => {
       popup.hidden = true;
     }, 350);
@@ -356,17 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-wa]").forEach((el) => {
     const preset = el.dataset.wa || "default";
     el.setAttribute("href", waUrl(preset));
-    const cta = el.dataset.cta;
-    el.addEventListener("click", () => cta && trackCta(cta));
-  });
-
-  document.querySelectorAll("[data-cta-call]").forEach((el) => {
-    el.addEventListener("click", () => trackCta(el.dataset.ctaCall));
-  });
-
-  document.querySelectorAll("[data-cta]").forEach((el) => {
-    if (el.dataset.wa || el.dataset.ctaCall) return;
-    el.addEventListener("click", () => trackCta(el.dataset.cta));
   });
 
   const io = new IntersectionObserver((entries) => {
