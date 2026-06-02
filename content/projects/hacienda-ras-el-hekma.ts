@@ -17,7 +17,7 @@ export const HACIENDA = {
   PHONE: "201008900076",
 
   // CLIENT: replace Formspree endpoint before launch
-  LEAD_ENDPOINT: "https://formspree.io/f/xkoeneel",
+  LEAD_ENDPOINT: "https://formspree.io/f/mjgzndvo",
 
   logos: {
     developerOnDark: "/hacienda/logos/palm-hills-official.png",
