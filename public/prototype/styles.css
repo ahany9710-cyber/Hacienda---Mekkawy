@@ -183,6 +183,11 @@ button { font: inherit; cursor: pointer; }
   color: var(--bone);
 }
 .btn-dark:hover { background: #2b2925; }
+.btn-dark[data-wa]:hover {
+  background: var(--wa);
+  color: #08231a;
+  box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 8px 24px -8px rgba(37,211,102,.45);
+}
 
 .btn-accent {
   background: var(--accent);
@@ -1368,6 +1373,11 @@ button { font: inherit; cursor: pointer; }
   z-index: 90;
   box-shadow: 0 10px 30px -8px rgba(37, 211, 102, .55), 0 1px 0 rgba(0,0,0,.1);
   text-decoration: none;
+  transition: transform .25s var(--ease), background .25s var(--ease);
+}
+.float-wa:hover {
+  background: #1ebd5b;
+  transform: translateY(-2px);
 }
 .float-wa::after {
   content: "";
@@ -1423,6 +1433,7 @@ button { font: inherit; cursor: pointer; }
   border: 1px solid rgba(246, 241, 232, .25);
 }
 .sticky-mobile .wa { background: var(--wa); color: #08231a; }
+.sticky-mobile .wa:hover { background: #1ebd5b; }
 
 @media (max-width: 760px) {
   .sticky-mobile { display: block; }
